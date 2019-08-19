@@ -1,0 +1,34 @@
+{
+  "presets": [
+    [
+      "@babel/preset-env",
+      {
+        "debug": false,
+        "useBuiltIns": "usage",
+        "corejs": 3,
+        "targets": {
+          "browsers": [
+            "last 2 versions",
+            "not dead",
+            "ie >= 11",
+            "safari >= 7"
+          ]
+        }
+      }
+    ],
+    "@babel/preset-react"
+  ],
+  "plugins": [
+    [
+      "module-resolver",
+      {
+        "alias": {
+          "components": "./src/components",
+          "pages": "./src/pages",
+          "services": "./src/services",
+          "state": "./src/state"
+        }
+      }
+    ]
+  ]
+}
