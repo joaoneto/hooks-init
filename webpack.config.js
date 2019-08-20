@@ -26,7 +26,7 @@ module.exports = {
   target: 'web',
 
   resolve: {
-    extensions: ['.js', '.jsx'],
+    extensions: ['.js', '.jsx', '.ts', '.tsx'],
     descriptionFiles: ['package.json'],
     modules: ['node_modules']
   },
@@ -41,14 +41,26 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.(js|jsx)$/,
+        test: /\.ts(x?)$/,
+        exclude: /node_modules/,
+        use: {
+          loader: 'ts-loader'
+        }
+      },
+      {
+        enforce: 'pre',
+        test: /\.js$/,
+        loader: 'source-map-loader'
+      },
+      {
+        test: /\.js(x?)$/,
         exclude: /node_modules/,
         use: {
           loader: 'babel-loader'
         }
       },
       {
-        test: /\.(png|jpe?g|gif|eot|woff|woff2|svg|ttf)([\?]?.*)$/,
+        test: /\.(png|jpe?g|gif|eot|woff|woff2|svg|ttf)([?]?.*)$/,
         loader: 'file-loader',
         options: {
           name: '[name].[ext]'
