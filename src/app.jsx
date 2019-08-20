@@ -1,11 +1,14 @@
 import React from 'react';
 
-import Pages from './pages';
+import { StoreProvider } from 'state/store';
+import Pages from 'pages';
 
 export default () => {
   return (
     <div>
-      <Pages />
+      <StoreProvider>
+        <Pages />
+      </StoreProvider>
     </div>
   );
 };

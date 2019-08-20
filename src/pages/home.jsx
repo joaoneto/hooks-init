@@ -1,8 +1,12 @@
-import React, { useState } from 'react';
+import React, { useState, Component } from 'react';
+import { Link } from 'react-router-dom';
+
 import Projects from 'components/project';
 
+import { useProjects } from 'hooks/projects';
+
 export default () => {
-  const [projects, setProjects] = useState([]);
+  const [projects, { setProjects }] = useProjects();
   
   function handleProjectAdd() {
     setProjects([
@@ -18,6 +22,9 @@ export default () => {
     <div>
       <div>Home</div>
       <button onClick={handleProjectAdd}>Add Project</button>
+      <Link to="/home-redux-like">
+        Go to home-redux-like
+      </Link>
       {projects.map((project, key) => 
         <Projects
           key={key}
