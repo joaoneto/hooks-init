@@ -3,9 +3,9 @@ import { Link } from 'react-router-dom';
 
 import Projects from 'components/project';
 
-import { connect } from 'state/store';
-import { addProject } from 'state/projects/projects.actions';
-import { increment, decrement } from 'state/count/count.actions';
+import { connect } from 'state/redux-like/store';
+import { addProject } from 'state/redux-like/projects/projects.actions';
+import { increment, decrement } from 'state/redux-like/count/count.actions';
 
 class HomeReduxLike extends Component {
   constructor() {

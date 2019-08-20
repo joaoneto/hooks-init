@@ -1,21 +1,18 @@
-import React, { useState, Component } from 'react';
+import React, { useContext, Component } from 'react';
 import { Link } from 'react-router-dom';
 
 import Projects from 'components/project';
 
-import { useProjects } from 'hooks/projects';
+import { ProjectContext } from 'state/context-like/projects.provider';
 
 export default () => {
-  const [projects, { setProjects }] = useProjects();
+  const { projects, addProject } = useContext(ProjectContext);
   
   function handleProjectAdd() {
-    setProjects([
-      ...projects,
-      {
-        name: Date.now(),
-        description: 'My Project'
-      }
-    ]);
+    addProject({
+      name: Date.now(),
+      description: 'My Project'
+    });
   }
 
   return (

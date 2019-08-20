@@ -1,8 +1,8 @@
 import React from 'react';
 import { createContext, useContext, useReducer } from 'react';
 
-import countReducer from 'state/count/count.reducer';
-import projectsReducer from 'state/projects/projects.reducer';
+import countReducer from 'state/redux-like/count/count.reducer';
+import projectsReducer from 'state/redux-like/projects/projects.reducer';
 const rootReducer = (state, action) => ({
   count: countReducer(state.count, action),
   projects: projectsReducer(state.projects, action)
