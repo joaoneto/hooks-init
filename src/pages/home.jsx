@@ -1,12 +1,12 @@
-import React, { useContext, Component } from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 
 import Projects from 'components/project';
 
-import { ProjectContext } from 'state/context-like/projects.provider';
+import { ProjectsContext } from 'state';
 
 export default () => {
-  const { projects, addProject } = useContext(ProjectContext);
+  const { projects, addProject } = useContext(ProjectsContext);
   
   function handleProjectAdd() {
     addProject({

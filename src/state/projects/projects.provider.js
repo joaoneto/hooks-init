@@ -2,9 +2,9 @@ import React, { createContext, useState, useEffect } from 'react';
 
 import ProjectsService from 'services/projects';
 
-export const ProjectContext = createContext();
+export const ProjectsContext = createContext();
 
-const ProjectProvider = ({ value, children }) => {
+const ProjectsProvider = ({ value, children }) => {
   const [projects, setProjects] = useState(value || []);
   
   const getAllProjects = async () => {
@@ -32,7 +32,7 @@ const ProjectProvider = ({ value, children }) => {
   }, []);
   
   return (
-    <ProjectContext.Provider 
+    <ProjectsContext.Provider 
       value={{
         projects,
         addProject,
@@ -40,8 +40,8 @@ const ProjectProvider = ({ value, children }) => {
         getAllProjects
       }}>
       {children}
-    </ProjectContext.Provider>
+    </ProjectsContext.Provider>
   );
 };
 
-export default ProjectProvider;
+export default ProjectsProvider;
